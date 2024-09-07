@@ -1,6 +1,7 @@
 import dill
 import os
 import pandas as pd
+from constants import output_file_path
 
 def read_data_and_store_as_dill(file_path, output_file_path):
     try:
@@ -20,5 +21,4 @@ def read_data_and_store_as_dill(file_path, output_file_path):
 
 if __name__ == '__main__':
     input_file = "data/store_info.csv"
-    output_file = "data/store_info.dill"
-    read_data_and_store_as_dill(input_file, output_file)
+    read_data_and_store_as_dill(input_file, output_file_path)
