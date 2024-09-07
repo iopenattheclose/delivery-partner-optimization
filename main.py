@@ -21,6 +21,7 @@ def predict():
 
     print(f'The predicted class label: {pred}')
 
+    print(f'Actual class: ',y_val[n])
 
 def knn(X,Y,queryPoint,k):
     """Predict the class label for the query point"""
@@ -36,11 +37,16 @@ def knn(X,Y,queryPoint,k):
 
     distances = np.array(distances)
 
+    #returns unique classes and count of each class as two sep np arrays
     classes_counts = np.unique(distances[:,1],return_counts=True)
 
+    #gives index of max value of count array
     index = classes_counts[1].argmax()
+
+    #returns the class having max count
     pred = classes_counts[0][index]
 
+    # print('Neighbors[(distance),(Label)]:',distances)
     return int(pred),distances
     
 
